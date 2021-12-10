@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Weight converter</title>
+	<meta name="viewport" content="width=device-width , initial-scale=1, shrink-to-fit=no"> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style type="text/css">
+	body{
+		margin-top: 70px;
+		background: #333;
+		color: #fff;
+	}
+</style>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 m-auto">
+				<h1 class="display-4 text-center"> Weight Converter</h1>
+			<form>
+				<div class="form-group">
+					<input id ="input" type="number" name="Weightinput" class="form-control-lg form-control" placeholder="Enter in pounds...">
+				</div>
+			</form>
+
+			<div id="output">
+				<div class="card bg-primary mb-2">
+					<div class="card-block">
+					    <h4 class="m-3">Grams: </h4>
+					    <div id="gramsoutput"></div>
+				    </div>
+				</div>
+
+				<div class="card bg-success mb-2">
+					<div class="card-block ">
+					    <h4 class="m-3">Kilograms: </h4>
+					    <div id="kgoutput"></div>
+				    </div>
+				</div>
+
+				<div class="card bg-danger mb-2">
+					<div class="card-block">
+					    <h4 class="m-3">Ounces: </h4>
+					    <div id="ounceoutput"></div>
+				    </div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		document.getElementById('output').style.visibility = 'hidden';
+	    document.getElementById('input').addEventListener('input' , function(e){
+	    	document.getElementById('output').style.visibility = 'visible';
+	    	console.log(e);
+			let lbs = e.target.value;
+			document.getElementById('gramsoutput').innerHTML= lbs/0.0022046;
+			document.getElementById('gramsoutput').style.marginLeft = "15px";
+			document.getElementById('kgoutput').innerHTML= lbs/2.2046;
+			document.getElementById('kgoutput').style.marginLeft = "15px";
+			document.getElementById('ounceoutput').innerHTML= lbs*16;
+			document.getElementById('ounceoutput').style.marginLeft = "15px";
+		});
+	</script>
+</body>
+</html>
